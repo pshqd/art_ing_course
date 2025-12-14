@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 from typing import Optional
-
+import random
 import pandas as pd
 import typer
 
@@ -153,6 +153,24 @@ def report(
     typer.echo("- Табличные файлы: summary.csv, missing.csv, correlation.csv, top_categories/*.csv")
     typer.echo("- Графики: hist_*.png, missing_matrix.png, correlation_heatmap.png")
 
+@app.command()
+def sample(
+    path: str = typer.Argument(..., help="Путь к CSV-файлу."),
+    sep: str = typer.Option(",", help="Разделитель в CSV."),
+    encoding: str = typer.Option("utf-8", help="Кодировка файла."),
+    n: int = typer.Option(5, help="Количество выводимых строк.")
+) -> None:
+    """
+    Напечатать случайные n строк датасета.
+    """
+    df = _load_csv(Path(path), sep=sep, encoding=encoding)
+    if n > df.shape[0]:
+        n = df.shape[0]
+    random_nums = [random.randint(0,df.shape[0]) for _ in range (n)]
+    
+    df_crop = df.iloc[random_nums]
+    typer.echo("\nВот датасет:\n")
+    typer.echo(df_crop.to_string(index=False))
 
 if __name__ == "__main__":
     app()
