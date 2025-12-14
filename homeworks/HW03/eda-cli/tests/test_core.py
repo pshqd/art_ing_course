@@ -18,6 +18,8 @@ def _sample_df() -> pd.DataFrame:
             "age": [10, 20, 30, None],
             "height": [140, 150, 160, 170],
             "city": ["A", "B", "A", None],
+            "user_id":['0','1','2','3'],
+            "const_col":[5,5,5,5]
         }
     )
 
@@ -27,7 +29,7 @@ def test_summarize_dataset_basic():
     summary = summarize_dataset(df)
 
     assert summary.n_rows == 4
-    assert summary.n_cols == 3
+    assert summary.n_cols == 5
     assert any(c.name == "age" for c in summary.columns)
     assert any(c.name == "city" for c in summary.columns)
 
@@ -44,7 +46,7 @@ def test_missing_table_and_quality_flags():
     assert missing_df.loc["age", "missing_count"] == 1
 
     summary = summarize_dataset(df)
-    flags = compute_quality_flags(summary, missing_df)
+    flags = compute_quality_flags(summary,df, missing_df)
     assert 0.0 <= flags["quality_score"] <= 1.0
 
 
@@ -59,3 +61,12 @@ def test_correlation_and_top_categories():
     city_table = top_cats["city"]
     assert "value" in city_table.columns
     assert len(city_table) <= 2
+
+def new_flags():
+    df = _sample_df()
+    missing_df = missing_table(df)
+    summary = summarize_dataset(df)
+    flags = compute_quality_flags(summary,df, missing_df)
+    
+    assert flags['has_suspicious_id_duplicates'] == False
+    assert flags['has_constant_columns'] == True

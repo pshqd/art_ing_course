@@ -169,8 +169,10 @@ def top_categories(
 
     return result
 
+def constant_column(df):
+    return (df.nunique() == 1).any()
 
-def compute_quality_flags(summary: DatasetSummary, missing_df: pd.DataFrame) -> Dict[str, Any]:
+def compute_quality_flags(summary: DatasetSummary,df:pd.DataFrame, missing_df: pd.DataFrame) -> Dict[str, Any]:
     """
     Простейшие эвристики «качества» данных:
     - слишком много пропусков;
@@ -196,6 +198,11 @@ def compute_quality_flags(summary: DatasetSummary, missing_df: pd.DataFrame) -> 
     score = max(0.0, min(1.0, score))
     flags["quality_score"] = score
 
+    flags["has_constant_columns"] = constant_column(df)
+
+    flags['has_suspicious_id_duplicates'] = False
+    if 'user_id' in missing_df.columns:
+        flags['has_suspicious_id_duplicates'] = df['user_id'].duplicated().any()
     return flags
 
 
@@ -221,3 +228,4 @@ def flatten_summary_for_print(summary: DatasetSummary) -> pd.DataFrame:
             }
         )
     return pd.DataFrame(rows)
+
