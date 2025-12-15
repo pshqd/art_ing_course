@@ -62,7 +62,7 @@ def test_correlation_and_top_categories():
     assert "value" in city_table.columns
     assert len(city_table) <= 2
 
-def new_flags():
+def test_new_flags():
     df = _sample_df()
     missing_df = missing_table(df)
     summary = summarize_dataset(df)
