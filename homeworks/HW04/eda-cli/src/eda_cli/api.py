@@ -7,6 +7,8 @@ from pydantic import BaseModel, Field
 from typing import Any
 from .core import compute_quality_flags, missing_table, summarize_dataset
 
+#uv run uvicorn eda_cli.api:app --reload --port 8000
+
 app = FastAPI(
     title="AIE Dataset Quality API",
     version="0.2.0",
@@ -87,8 +89,8 @@ class DataFrameResponse(BaseModel):
         ...,
         ge=0.0,
         description="Время обработки запроса на сервере, миллисекунды",
-    ),
-    return_df: dict[str][str] = Field(...,"ДатаФрейм на отправку")
+    )
+    return_df: dict[str,Any] = Field(...,description="ДатаФрейм на отправку")
     
 class SampleResponse(BaseModel):
     rows: list[dict[str, Any]]  
@@ -335,23 +337,15 @@ async def quality_flags_from_csv(file: UploadFile = File(...)) -> QualityRespons
         flags = flags_bool,
         dataset_shape={"n_rows": n_rows, "n_cols": n_cols},
     )
-def get_sample(path,
-    sep = ",", encoding = "utf-8", n = 5):
-    df = pd.read_csv(path, sep=sep, encoding=encoding)
-    if n > df.shape[0]:
-        n = df.shape[0]
-    random_nums = [random.randint(0,df.shape[0]) for _ in range (n)]
-    
-    df_crop = df.iloc[random_nums]
-    return df_crop.to_string(index=False)
+
 
 @app.post(
     "/sample",
-    response_model=QualityResponse,
+    response_model=SampleResponse,
     tags=["quality"],
     summary="Оценка качества флагами по CSV-файлу с использованием функции flags из EDA-ядра",
 )
-async def sample_from(file: UploadFile = File(...)) -> QualityResponse:
+async def sample_from(file: UploadFile = File(...), n: int = 5) -> SampleResponse:
     start = perf_counter()
 
     if file.content_type not in ("text/csv", "application/vnd.ms-excel", "application/octet-stream"):
@@ -368,7 +362,15 @@ async def sample_from(file: UploadFile = File(...)) -> QualityResponse:
     if n > df.shape[0]:
         n = df.shape[0]
 
-    random_nums = [random.randint(0,df.shape[0]) for _ in range (n)]
-    df_sample = df.iloc[random_nums]
+    df_sample = df.sample(n=n)
 
-    df_sample = df_sample.to_dict(orient="records")
+    df_sample_row = df_sample.to_dict(orient="records")
+    latency_ms = (perf_counter() - start) * 1000.0
+
+    return SampleResponse(
+        rows = df_sample_row,
+        n_rows = df_sample.shape[0],
+        n_columns = df_sample.shape[1],
+        message = f"Случайные {n} строк",
+        latency_ms = latency_ms
+    )

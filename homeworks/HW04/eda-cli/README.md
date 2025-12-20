@@ -1,83 +1,86 @@
-# --- UPDATE ---
-# S03 – eda_cli: мини-EDA для CSV
+## Обновление 2.0
 
-Небольшое CLI-приложение для базового анализа CSV-файлов.
-Используется в рамках Семинара 03 курса «Инженерия ИИ».
+Небольшое HTTP‑API для **базового анализа CSV‑файлов** в рамках Семинара 04 курса «Инженерия ИИ».  
+Весь ранее реализованный CLI‑функционал сохранён без изменений.
 
-## Требования
-
-- Python 3.11+
-- [uv](https://docs.astral.sh/uv/) установлен в систему
-
-## Инициализация проекта
-
-В корне проекта (S03):
+## Запуск сервиса
 
 ```bash
-uv sync
+uv run uvicorn eda_cli.api:app --reload --port 8000
 ```
 
-Эта команда:
+Сервис поднимается на `http://127.0.0.1:8000`, документация доступна на `/docs`.
 
-- создаст виртуальное окружение `.venv`;
-- установит зависимости из `pyproject.toml`;
-- установит сам проект `eda-cli` в окружение.
+## Эндпоинт: POST `/quality-flags-from-csv`
 
-## Запуск CLI
+Принимает CSV‑файл и возвращает оценки качества датасета в виде набора булевых флагов и интегрального скора.
 
-### Sample - по
+Пример ответа:
 
-```bash
-uv run eda-cli sample data/example.csv --n 5
+```json
+{
+  "ok_for_model": true,
+  "quality_score": 0.7444444444444445,
+  "message": "Флаги качества датасета.",
+  "latency_ms": 12.142042000050424,
+  "flags": {
+    "too_few_rows": true,
+    "too_many_columns": false,
+    "too_many_missing": false,
+    "has_suspicious_id_duplicates": false
+  },
+  "dataset_shape": {
+    "n_rows": 36,
+    "n_cols": 14
+  }
+}
 ```
 
-| Параметр            | Тип    | По умолчанию | Описание                                               |
-|---------------------|--------|--------------|--------------------------------------------------------|
-| `path`              | `str`  | — обязателен | Путь к CSV‑файлу.                                      |
-| `--sep`             | `str`  | `","`        | Разделитель столбцов в CSV‑файле.                      |
-| `--encoding`        | `str`  | `utf-8`      | Кодировка входного файла.                              |
-| `--n.`              | `int`  | `5`          | Количество показанных строк датафреймаю.               |
+## Эндпоинт: POST `/sample`
 
-### Краткий обзор
+Принимает CSV‑файл и параметр `n`, возвращает случайные `n` строк датасета в JSON‑формате.
 
-```bash
-uv run eda-cli overview data/example.csv
-```
+Пример ответа:
 
-Параметры:
-
-- `--sep` – разделитель (по умолчанию `,`);
-- `--encoding` – кодировка (по умолчанию `utf-8`).
-
-### Полный EDA-отчёт
-
-```bash
-uv run eda-cli report data/example.csv --out-dir reports
-```
-
-| Параметр            | Тип    | По умолчанию | Описание                                               |
-|---------------------|--------|--------------|--------------------------------------------------------|
-| `path`              | `str`  | — (обязателен) | Путь к CSV‑файлу.                                    |
-| `--out-dir`         | `str`  | `reports`    | Каталог, в который будет сохранён отчёт.               |
-| `--sep`             | `str`  | `","`        | Разделитель столбцов в CSV‑файле.                      |
-| `--encoding`        | `str`  | `utf-8`      | Кодировка входного файла.                              |
-| `--max-hist-columns`| `int`  | `6`          | Максимальное количество числовых колонок для гистограмм|
-| `--title`           | `str`  | `Report`     | Заголовок генерируемого отчёта.                        |
-| `--top-k-cats`      | `int`  | `5`          | Сколько наиболее частых категорий оставлять в отчёте.  |
-
-В результате в каталоге `reports/` появятся:
-
-- `report.md` – основной отчёт в Markdown;
-- `summary.csv` – таблица по колонкам;
-- `missing.csv` – пропуски по колонкам;
-- `correlation.csv` – корреляционная матрица (если есть числовые признаки);
-- `top_categories/*.csv` – top-k категорий по строковым признакам;
-- `hist_*.png` – гистограммы числовых колонок;
-- `missing_matrix.png` – визуализация пропусков;
-- `correlation_heatmap.png` – тепловая карта корреляций.
-
-## Тесты
-
-```bash
-uv run pytest -q
+```json
+{
+  "rows": [
+    {
+      "user_id": 1020,
+      "country": "BY",
+      "city": "Gomel",
+      "device": "Desktop",
+      "channel": "Ads",
+      "sessions_last_30d": 5,
+      "avg_session_duration_min": 4.1,
+      "pages_per_session": 3,
+      "purchases_last_30d": 0,
+      "revenue_last_30d": 0,
+      "churned": 1,
+      "signup_year": 2019,
+      "plan": "Free",
+      "n_support_tickets": 0
+    },
+    {
+      "user_id": 1008,
+      "country": "RU",
+      "city": "Moscow",
+      "device": "Desktop",
+      "channel": "Referral",
+      "sessions_last_30d": 34,
+      "avg_session_duration_min": 15.2,
+      "pages_per_session": 7.1,
+      "purchases_last_30d": 4,
+      "revenue_last_30d": 6200,
+      "churned": 0,
+      "signup_year": 2020,
+      "plan": "Pro",
+      "n_support_tickets": 2
+    }
+  ],
+  "n_rows": 2,
+  "n_columns": 14,
+  "message": "Случайные 2 строк",
+  "latency_ms": 4.211709000173869
+}
 ```
