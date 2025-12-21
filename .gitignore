@@ -56,3 +56,5 @@ logs/
 *.tmp
 *.bak
 *.old
+artifacts/*.joblib
+*.joblib
