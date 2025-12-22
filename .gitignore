@@ -18,14 +18,13 @@ venv/
 env/
 ENV/
 .conda/
-.venv*/
 
 # Кеши Python и скомпилированные файлы
 __pycache__/
 *.py[cod]
 *$py.class
 
-# Папки и файлы сборки/дистрибуции (если вдруг появятся)
+# Папки и файлы сборки/дистрибуции
 build/
 dist/
 eggs/
@@ -52,11 +51,16 @@ logs/
 .env.*
 !.env.example
 
+# UV (package manager)
+uv.lock
+reports_example/
+
+# ML артефакты (модели НЕ коммитим!)
+*.joblib
+*.pkl
+models/
+
 # Разное
 *.tmp
 *.bak
 *.old
-artifacts/*.joblib
-*.joblib
-artifacts/*.joblib
-*.joblib
