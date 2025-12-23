@@ -1,0 +1,32 @@
+{
+  "results": [
+    {
+      "accuracy": 0.9806,
+      "recall": 0.6869918699186992,
+      "precision": 0.8941798941798942,
+      "roc_auc": 0.8977549072924469,
+      "model": "Stacking"
+    },
+    {
+      "accuracy": 0.981,
+      "recall": 0.6666666666666666,
+      "precision": 0.9265536723163842,
+      "roc_auc": 0.9033676390613297,
+      "model": "HistGradientBoosting"
+    },
+    {
+      "accuracy": 0.9758,
+      "recall": 0.7276422764227642,
+      "precision": 0.7682403433476395,
+      "roc_auc": 0.8933982850556313,
+      "model": "RandomForest"
+    },
+    {
+      "accuracy": 0.9618,
+      "recall": 0.5365853658536586,
+      "precision": 0.631578947368421,
+      "roc_auc": 0.8270797206289269,
+      "model": "DecisionTree"
+    }
+  ]
+}

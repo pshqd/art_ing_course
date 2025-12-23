@@ -1,0 +1,42 @@
+{
+  "DecisionTree": {
+    "best_params": {
+      "ccp_alpha": 0.0,
+      "class_weight": {
+        "0": 1,
+        "1": 3
+      },
+      "criterion": "gini",
+      "max_depth": 8,
+      "max_features": null,
+      "min_samples_leaf": 10
+    },
+    "best f1 score": 0.5743237651395751
+  },
+  "RandomForest": {
+    "best_params": {
+      "ccp_alpha": 0.001,
+      "class_weight": "balanced",
+      "max_depth": 15,
+      "min_samples_leaf": 5,
+      "min_samples_split": 2,
+      "n_estimators": 600
+    },
+    "best f1 score": 0.7105359628012818
+  },
+  "HistGradientBoosting": {
+    "best_params": {
+      "class_weight": {
+        "0": 1,
+        "1": 3
+      },
+      "l2_regularization": 0.0,
+      "learning_rate": 0.1,
+      "max_depth": null,
+      "max_features": 0.8,
+      "max_iter": 100,
+      "min_samples_leaf": 20
+    },
+    "best f1 score": 0.7427293922868391
+  }
+}
