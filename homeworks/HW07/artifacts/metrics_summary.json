@@ -1,0 +1,65 @@
+[
+  {
+    "ds": "ds1",
+    "model": "kmeans",
+    "silhouette": 0.5216395622404243,
+    "davies_bouldin": 0.6853295219054457,
+    "calinski_harabasz": 11786.954622671536,
+    "params": {
+      "k": 2
+    }
+  },
+  {
+    "ds": "ds2",
+    "model": "kmeans",
+    "silhouette": 0.4674501079818607,
+    "davies_bouldin": 0.6338116960375425,
+    "calinski_harabasz": 7772.878476765102,
+    "params": {
+      "k": 13
+    }
+  },
+  {
+    "ds": "ds4",
+    "model": "kmeans",
+    "silhouette": 0.6617270876956339,
+    "davies_bouldin": 0.5149712525431878,
+    "calinski_harabasz": 20487.00722368608,
+    "params": {
+      "k": 6
+    }
+  },
+  {
+    "ds": "ds1",
+    "model": "agg",
+    "silhouette": 0.5216395622404243,
+    "davies_bouldin": 0.6853295219054457,
+    "calinski_harabasz": 11786.954622671536,
+    "params": {
+      "k": 2,
+      "linkage": "ward"
+    }
+  },
+  {
+    "ds": "ds2",
+    "model": "agg",
+    "silhouette": 0.5067480875786876,
+    "davies_bouldin": 0.751056118389891,
+    "calinski_harabasz": 628.760834823002,
+    "params": {
+      "k": 2,
+      "linkage": "average"
+    }
+  },
+  {
+    "ds": "ds4",
+    "model": "agg",
+    "silhouette": 0.6617270876956339,
+    "davies_bouldin": 0.5149712525431878,
+    "calinski_harabasz": 20487.00722368608,
+    "params": {
+      "k": 6,
+      "linkage": "ward"
+    }
+  }
+]

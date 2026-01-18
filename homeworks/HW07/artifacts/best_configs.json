@@ -1,0 +1,24 @@
+{
+  "ds1": {
+    "k": 2
+  },
+  "ds2": {
+    "k": 13
+  },
+  "ds3": {
+    "k": 6
+  },
+  "ds4": {
+    "k": 2,
+    "linkage": "ward"
+  },
+  "ds5": {
+    "k": 2,
+    "linkage": "average"
+  },
+  "ds6": {
+    "k": 6,
+    "linkage": "ward"
+  },
+  "criterion": "silhouette"
+}
