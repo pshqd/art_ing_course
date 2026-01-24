@@ -1,46 +1,53 @@
 {
-  "results": [
-    {
-      "accuracy": 0.9806,
-      "recall": 0.6869918699186992,
-      "precision": 0.8941798941798942,
-      "roc_auc": 0.8977549072924469,
-      "model": "Stacking"
-    },
-    {
-      "accuracy": 0.981,
+  "results": {
+    "Stacking": {
+      "accuracy": 0.979,
+      "precision": 0.8770053475935828,
       "recall": 0.6666666666666666,
-      "precision": 0.9265536723163842,
-      "roc_auc": 0.9033676390613297,
-      "model": "HistGradientBoosting"
+      "f1": 0.7575057736720554,
+      "roc_auc": 0.8987784356177596
     },
-    {
-      "accuracy": 0.9758,
-      "recall": 0.7276422764227642,
-      "precision": 0.7682403433476395,
-      "roc_auc": 0.8933982850556313,
-      "model": "RandomForest"
-    },
-    {
-      "accuracy": 0.9618,
-      "recall": 0.5365853658536586,
-      "precision": 0.631578947368421,
-      "roc_auc": 0.8270797206289269,
-      "model": "DecisionTree"
-    },
-    {
-      "accuracy": 0.9632,
-      "recall": 0.2804878048780488,
-      "precision": 0.9078947368421053,
-      "roc_auc": 0.8340712656179989,
-      "model": "LogReg"
-    },
-    {
+    "Dummy": {
       "accuracy": 0.905,
-      "recall": 0.036585365853658534,
       "precision": 0.03643724696356275,
-      "roc_auc": 0.4932611305498836,
-      "model": "Dummy"
+      "recall": 0.036585365853658534,
+      "f1": 0.036511156186612576,
+      "roc_auc": 0.4932611305498836
+    },
+    "LogisticRegression": {
+      "accuracy": 0.9632,
+      "precision": 0.9078947368421053,
+      "recall": 0.2804878048780488,
+      "f1": 0.42857142857142855,
+      "roc_auc": 0.8340712656179989
+    },
+    "DecisionTree": {
+      "accuracy": 0.9622,
+      "precision": 0.6507936507936508,
+      "recall": 0.5,
+      "f1": 0.5655172413793104,
+      "roc_auc": 0.8044800099873106
+    },
+    "RandomForest": {
+      "accuracy": 0.978,
+      "precision": 0.8300970873786407,
+      "recall": 0.6951219512195121,
+      "f1": 0.7566371681415929,
+      "roc_auc": 0.8983611575703472
+    },
+    "Boosting": {
+      "accuracy": 0.962,
+      "precision": 0.5853658536585366,
+      "recall": 0.7804878048780488,
+      "f1": 0.6689895470383276,
+      "roc_auc": 0.897576195997551
     }
-  ]
+  },
+  "meta": {
+    "best_model_label": "Stacking",
+    "primary_metric": "f1",
+    "boosting_model": "HistGradientBoostingClassifier",
+    "dataset": "S06-hw-dataset-04.csv",
+    "random_state": 42
+  }
 }
