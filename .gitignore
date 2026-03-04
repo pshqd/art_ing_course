@@ -41,6 +41,7 @@ htmlcov/
 # Журналы
 *.log
 logs/
+data/
 
 # Кеши Jupyter Notebook
 .ipynb_checkpoints
