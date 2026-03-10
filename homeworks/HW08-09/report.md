@@ -2,47 +2,47 @@
 
 ## 1. Кратко: что сделано
 
-- Какой датасет выбран (A/B/C) и почему.
-- Что сравнивалось в части A (регуляризация) и в части B (оптимизация).
+- Был выбран датасет EMNIST, потому что брать обычный мнист - слишком скучно. А с цифар10 MLP бы не справился хорошо,не хотелось получать плохие результаты.
+- В части A сравнивалась регуляризация в архитектуре MLP (Dropout, BatchNorm, EarlyStopping). Регуляризация нужна для того, чтобы предотвратить переобучение. В части B сравнивалась оптимизация - размер LR, Adam и SGD + momentum
 
 ## 2. Среда и воспроизводимость
 
-- Python:
-- torch / torchvision:
-- Устройство (CPU/GPU):
-- Seed:
+- Python: 3.10
+- torch / torchvision: torchvision>=0.25.0, torchvision>=0.25.0
+- Устройство (CPU/GPU): CPU
+- Seed: 42
 - Как запустить: открыть `HW08-09.ipynb` и выполнить Run All.
 
 ## 3. Данные
 
-- Датасет: (KMNIST / EMNIST Balanced / CIFAR10)
-- Разделение: train/val/test (например, train split 80/20 + test из torchvision)
-- Трансформации (transform): (ToTensor / Normalize / другое)
-- Комментарий (1-3 предложения): что важно в данных (число классов, размерность, сложность)
+- Датасет: EMNIST Balanced
+- Разделение: train/val/test - train split 90/10 + test из torchvision
+- Трансформации (transform): transforms.ToTensor(), transforms.Normalize((0.5,), (0.5,))
+- Комментарий : Данные представляют собой набор рукописных цифр и букв. Размер - (28, 28, 1). Встречаются перевернутые изображения.
 
 ## 4. Базовая модель и обучение
 
-- Модель MLP (кратко): число скрытых слоёв, размеры слоёв, активация
+- Модель MLP (кратко): размер скрытых слоев -  256,128; ф-ция активации - relu
 - Loss: CrossEntropyLoss
-- Базовый Optimizer (для части A): Adam (lr=...)
-- Batch size:
-- Epochs (макс):
-- EarlyStopping: (patience=..., metric=val_accuracy или val_loss)
+- Базовый Optimizer (для части A): Adam (lr=1e-3)
+- Batch size: 512
+- Epochs (макс): 10
+- EarlyStopping: (patience=4, min_delta=0.0005, metric=val_accuracy)
 
 ## 5. Часть A (S08): регуляризация (E1-E4)
 
 Опишите, что меняли. Формулировки должны быть короткими и сопоставимыми.
 
 - E1 (base): 2 скрытых слоя, без Dropout/BatchNorm
-- E2 (Dropout): как E1 + Dropout(p=...)
+- E2 (Dropout): как E1 + Dropout(p=0.2)
 - E3 (BatchNorm): как E1 + BatchNorm
 - E4 (EarlyStopping): лучший из (E2/E3) + EarlyStopping
 
 ## 6. Часть B (S09): LR, оптимизаторы, weight decay (O1-O3)
 
-- O1: LR слишком большой (Adam, lr=...)
-- O2: LR слишком маленький (Adam, lr=...)
-- O3: SGD+momentum (momentum=...) + weight_decay=... (lr=...)
+- O1: LR слишком большой (Adam, lr=7e-1)
+- O2: LR слишком маленький (Adam, lr=1e-5)
+- O3: SGD+momentum (momentum=0.9) + weight_decay=1e-4 (lr=1e-2)
 
 ## 7. Результаты
 
@@ -56,12 +56,12 @@
 
 Короткая сводка (5-9 строк):
 
-- Лучший эксперимент части A: (E2/E3/E4)
-- Лучшая val_accuracy:
-- Итоговая test_accuracy (для лучшей модели):
-- Что видно на O1 (слишком большой LR):
-- Что видно на O2 (слишком маленький LR):
-- Как повёл себя O3 (SGD+momentum + weight decay) относительно Adam (по кривым/метрике):
+- Лучший эксперимент части A: E4
+- Лучшая val_accuracy: 0.8502
+- Итоговая test_accuracy (для лучшей модели): 0.8373
+- Что видно на O1 (слишком большой LR): Модель перепрыгивает минимум и не сходится
+- Что видно на O2 (слишком маленький LR): Модель не успевает сойтись, уменьшение лосса медленное
+- Как повёл себя O3 (SGD+momentum + weight decay) относительно Adam (по кривым/метрике): Лучше на 0.02 по acc
 
 ## 8. Анализ
 
