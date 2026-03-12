@@ -1,5 +1,8 @@
-C1,classification,Flowers102,42,SimpleCNN base,Adam,0.001,2,0.04019607843137255,,,,,no augmentation
-C2,classification,Flowers102,42,SimpleCNN aug,Adam,0.001,2,0.03529411764705882,,,,,RandomResizedCrop + HorizontalFlip
-C3,classification,Flowers102,42,,Adam,0.001,2,0.12352941176470589,,,,,no augmentation
-C3,classification,Flowers102,42,"ResNet18 pretrained, head-only",Adam,0.001,2,0.12352941176470589,,,,,"Pretrained ResNet18; frozen backbone, train fc only"
-C4,classification,Flowers102,42,"ResNet18 pretrained, full finetune",Adam,0.0001,2,0.17254901960784313,,,,,Pretrained ResNet18; all layers trainable
+experiment_id,task,dataset,seed,model_summary,optimizer,lr,epochs_trained,best_val_accuracy,test_accuracy,precision,recall,mean_iou,notes
+C1,classification,Flowers102,42,SimpleCNN base,Adam,0.001,17,0.17352941176470588,,,,,no augmentation
+C2,classification,Flowers102,42,SimpleCNN aug,Adam,0.001,17,0.16176470588235295,,,,,RandomResizedCrop + HorizontalFlip + ColorJitter
+C3,classification,Flowers102,42,"ResNet18 pretrained, head-only",Adam,0.001,17,0.7549019607843137,,,,,"frozen backbone, train fc only"
+C4,classification,Flowers102,42,"ResNet18 pretrained, layer4+fc finetune",Adam,0.0001,17,0.796078431372549,,,,,layer4 and fc trainable
+BEST_TEST,classification,Flowers102,42,"ResNet18 pretrained, layer4+fc finetune",Adam,0.0001,17,0.796078431372549,0.7588225727760611,,,,final test of best classifier selected by val accuracy (C4)
+V2,segmentation,OxfordIIITPet,42,"DeepLabV3_ResNet50 pretrained, pet foreground via cat+dog probs",,,0,,,0.7804867691904385,0.9695904109188189,0.7618379898343042,"alternative postprocessing: pet_prob=(cat+dog), threshold=0.7"
+V1,segmentation,OxfordIIITPet,42,"DeepLabV3_ResNet50 pretrained, pet foreground via cat+dog probs",,,0,,,0.7486001074971683,0.9814668798759124,0.7381654904494798,"basic postprocessing: pet_prob=(cat+dog), threshold=0.5"
