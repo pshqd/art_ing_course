@@ -1,0 +1,15 @@
+{
+  "experiment_id": "C4",
+  "dataset": "Flowers102",
+  "seed": 42,
+  "device": "mps",
+  "model_summary": "ResNet18 pretrained, layer4+fc finetune",
+  "optimizer": "Adam",
+  "lr": 0.0001,
+  "epochs_trained": 15,
+  "best_val_accuracy": 0.7872549019607843,
+  "test_accuracy": 0.7541063587575215,
+  "train_transform": "ResNet18 pretrained weights transforms()",
+  "val_transform": "Resize(146)->CenterCrop(128)->ToTensor()->Normalize(ImageNet) OR resnet weights transforms()",
+  "notes": "layer4 and fc trainable"
+}

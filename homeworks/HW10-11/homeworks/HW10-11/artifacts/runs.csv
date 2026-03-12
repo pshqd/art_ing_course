@@ -1,0 +1,9 @@
+experiment_id,task,dataset,seed,model_summary,optimizer,lr,epochs_trained,best_val_accuracy,test_accuracy,precision,recall,mean_iou,notes
+C1,classification,Flowers102,42,SimpleCNN base,Adam,0.001,15,0.1784313725490196,,,,,no augmentation
+C1,classification,Flowers102,42,SimpleCNN base,Adam,0.001,15,0.1784313725490196,,,,,no augmentation
+C2,classification,Flowers102,42,SimpleCNN aug,Adam,0.001,15,0.17941176470588235,,,,,RandomResizedCrop + HorizontalFlip + ColorJitter
+C3,classification,Flowers102,42,"ResNet18 pretrained, head-only",Adam,0.001,15,0.7421568627450981,,,,,"frozen backbone, train fc only"
+C4,classification,Flowers102,42,"ResNet18 pretrained, layer4+fc finetune",Adam,0.0001,15,0.7872549019607843,,,,,layer4 and fc trainable
+BEST_TEST,classification,Flowers102,42,"ResNet18 pretrained, layer4+fc finetune",Adam,0.0001,15,0.7872549019607843,0.7541063587575215,,,,final test of best classifier selected by val accuracy (C4)
+V2,segmentation,OxfordIIITPet,42,"DeepLabV3_ResNet50 pretrained, pet foreground via cat+dog probs",,,0,,,0.7804867691904385,0.9695904109188189,0.7618379898343042,"alternative postprocessing: pet_prob=(cat+dog), threshold=0.7"
+V1,segmentation,OxfordIIITPet,42,"DeepLabV3_ResNet50 pretrained, pet foreground via cat+dog probs",,,0,,,0.7486001074971683,0.9814668798759124,0.7381654904494798,"basic postprocessing: pet_prob=(cat+dog), threshold=0.5"

@@ -1,0 +1,5 @@
+C1,classification,Flowers102,42,SimpleCNN base,Adam,0.001,2,0.04019607843137255,,,,,no augmentation
+C2,classification,Flowers102,42,SimpleCNN aug,Adam,0.001,2,0.03529411764705882,,,,,RandomResizedCrop + HorizontalFlip
+C3,classification,Flowers102,42,,Adam,0.001,2,0.12352941176470589,,,,,no augmentation
+C3,classification,Flowers102,42,"ResNet18 pretrained, head-only",Adam,0.001,2,0.12352941176470589,,,,,"Pretrained ResNet18; frozen backbone, train fc only"
+C4,classification,Flowers102,42,"ResNet18 pretrained, full finetune",Adam,0.0001,2,0.17254901960784313,,,,,Pretrained ResNet18; all layers trainable
