@@ -1,5 +1,5 @@
 =================================================================
-TOKENIZATION EXAMPLES — distilbert-base-uncased
+TOKENIZATION EXAMPLES — bert-base-uncased
 max_length=128, add_special_tokens=True
 =================================================================
 
