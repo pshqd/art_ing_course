@@ -65,3 +65,5 @@ models/
 *.tmp
 *.bak
 *.old
+
+checkpoints/

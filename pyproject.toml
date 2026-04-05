@@ -6,20 +6,27 @@ readme = "README.md"
 requires-python = ">=3.10,<3.14"
 dependencies = [
     "catboost>=1.2.8",
-    "datasets>=4.8.4",
-    "dvc>=3.66.1",
-    "joblib>=1.5.3",
+    "datasets>=2.14.0",
+    "dvc>=3.0.0",
+    "joblib>=1.3.0",
     "jupyterlab>=4.0.0,<5.0.0",
     "matplotlib>=3.8.0,<4.0.0",
     "notebook>=7.0.0,<8.0.0",
-    "numpy>=1.24.0,<2.0.0",
-    "pandas>=2.0.0,<2.2.0",
+    "numpy>=1.24.0",            # убрали <2.0.0 — torch 2.6+ требует numpy 2.x
+    "pandas>=2.0.0",            # убрали <2.2.0 — ограничение устарело
     "plotly>=5.0.0,<6.0.0",
     "scikit-learn>=1.3.0,<2.0.0",
     "seaborn>=0.12.0,<1.0.0",
-    "torch>=2.10.0",
-    "torchvision>=0.25.0",
-    "transformers>=5.5.0",
+    "torch>=2.5.0",             # было 2.10.0 — не существует, latest=2.6.0
+    "torchvision>=0.20.0",      # было 0.25.0  — не существует, latest=0.21.0
+    "transformers>=4.40.0",     # было 5.5.0   — не существует, latest=4.57.x
+    "accelerate>=1.1.0",
 ]
 
 [tool.uv]
+[tool.uv.workspace]
+members = []
+exclude = [
+    "homeworks/HW03/eda-cli",
+    "homeworks/HW04/eda-cli",
+]

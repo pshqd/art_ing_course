@@ -1,0 +1,21 @@
+text,true_label,pred_label,confidence,correct
+i feel less stress about doing pretty much any unpleasant obligation in life because i know that i will allow myself to mix it with things i enjoy running baking climbing coffee with girlfriends cuddling with my dog reading a book,sadness,sadness,0.9976006,True
+i would do almost anything to have that feeling back and those days back they were carefree and wonderful and now everything in my life is just so complicated,joy,joy,0.9974706,True
+im feeling energetic,joy,joy,0.9974137,True
+i feel so peaceful and happy,joy,joy,0.9973666,True
+i never feel like anythings getting resolved with my counseling so i just drift away,joy,joy,0.99691594,True
+i electrocuted my thumb and i cant type too well because i cant really you know feel some of my fingers as an acceptable excuse for a late paper,joy,joy,0.9962681,True
+id feel frantic,fear,fear,0.9945167,True
+i hear someone say we should just let gardeners be let folks do whatever they want i feel pretty aggravated,anger,anger,0.99426794,True
+i feel very saddened that the king whom i once quite respected as far as monarchs go was ineffectual at best,joy,sadness,0.95082843,False
+i actually was in a meeting last week where someone yelled at an older lady because her phone rang i felt terrible for her your boss treats you unfairly or in this case someone makes you feel you are not worth anything is only allowing those who offended to steal your joy,anger,sadness,0.9093418,False
+i like the fresh feeling of sweet he gave me,joy,love,0.8209484,False
+im happy to report im still not feeling terribly stressed,sadness,sadness,0.8013013,True
+i have made about sex i feel that women enjoy sex when their body and emotions are admired and respected,love,love,0.7061088,True
+i will practice meditation if i feel overwhelmed and hopefully become successful in peaceful practice,surprise,fear,0.6938336,False
+i feel shame in a strange way,surprise,fear,0.6372741,False
+i feel that working together and supporting each other as a whole i can represent a larger younger voice in politics what can i say to that,love,joy,0.6087834,False
+i figured my parents wont make me feel accepted so i stopped trying i turned to romantic relationships with men,love,joy,0.608694,False
+i have been sitting at home revising today and all in all feeling quite stressed,anger,sadness,0.54908854,False
+i always feel so helpless during times of disaster but i feel a little better knowing that even a few dollars can make a difference for someone in need,sadness,fear,0.54011047,False
+i reread for comfort the familiarity of a book whose plot i already know is easier to deal with when im feeling stressed than a new to me book with all its unknowns,sadness,anger,0.51985353,False
