@@ -67,3 +67,5 @@ models/
 *.old
 
 checkpoints/
+
+.sh
