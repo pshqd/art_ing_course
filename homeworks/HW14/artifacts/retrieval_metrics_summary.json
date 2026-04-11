@@ -1,0 +1,12 @@
+{
+  "k": 5,
+  "num_queries": 10,
+  "hit_at_k": 1.0,
+  "recall_at_k": 1.0,
+  "mrr_at_k": 0.925,
+  "perfect_hits": 10,
+  "failed_queries": 0,
+  "rank_1_hits": 9,
+  "before_after_changed": 13,
+  "total_chunks_after": 182
+}
