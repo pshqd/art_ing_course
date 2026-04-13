@@ -1,14 +1,14 @@
 ﻿query,before_retrieved_sources,after_retrieved_sources,changed
-как ухаживать за сухой кожей зимой,02_spring_skin_prep.md | 06_winter_skincare.md | 01_daily_skincare_rituals.md,— | — | —,True
-какие кислоты помогают от акне и расширенных пор,02_acne_diet.md | 02_oily_skin.md | 03_aha_bha_acids.md,— | — | —,True
-что такое постакне и как убрать тёмные пятна,01_acne_and_post_acne.md | 01_acne_and_post_acne.md | 01_acne_and_post_acne.md,— | — | —,True
-продукты и питание для здоровой кожи,01_healthy_eating_basics.md | 01_skin_beneficial_foods.md | 02_acne_diet.md,— | — | —,True
-как правильно наносить и выбирать SPF крем,04_spf_protection.md | 01_cleansing.md | 02_spring_skin_prep.md,— | — | —,True
-ретинол с чего начать и как избежать раздражения,01_retinol_and_derivatives.md | 04_wrinkles_and_loss_of_firmness.md | 01_retinol_and_derivatives.md,— | — | —,True
-уход за жирной кожей матирование и поры,02_oily_skin.md | 02_oily_skin.md | 01_cleansing.md,— | — | —,True
-витамин С сыворотка осветление пигментных пятен,02_pigmentation.md | 01_acne_and_post_acne.md | 02_pigmentation.md,— | — | —,True
-выпадение волос причины и что делать,04_split_ends.md | 04_split_ends.md | 02_curly_girl_method.md,— | — | —,True
-как читать состав косметики и что такое INCI,03_reading_inci_labels.md | 03_reading_inci_labels.md | 01_cleansing.md,— | — | —,True
-купероз и розацеа как лечить и какие триггеры,03_rosacea_and_couperose.md | 03_rosacea_and_couperose.md | 03_rosacea_and_couperose.md,— | — | —,True
-ниацинамид концентрация для жирной кожи,05_niacinamide.md | 02_oily_skin.md | 03_combination_skin.md,— | — | —,True
-метод кудряшки curly girl co-wash,02_curly_girl_method.md | 02_curly_girl_method.md | 02_curly_girl_method.md,— | — | —,True
+как ухаживать за сухой кожей зимой,02_spring_skin_prep.md | 06_winter_skincare.md | 01_daily_skincare_rituals.md,02_spring_skin_prep.md | 06_winter_skincare.md | 01_daily_skincare_rituals.md,False
+какие кислоты помогают от акне и расширенных пор,02_acne_diet.md | 02_oily_skin.md | 03_aha_bha_acids.md,02_acne_diet.md | 02_oily_skin.md | 03_aha_bha_acids.md,False
+что такое постакне и как убрать тёмные пятна,01_acne_and_post_acne.md | 01_acne_and_post_acne.md | 01_acne_and_post_acne.md,01_acne_and_post_acne.md | 01_acne_and_post_acne.md | 01_acne_and_post_acne.md,False
+продукты и питание для здоровой кожи,01_healthy_eating_basics.md | 01_skin_beneficial_foods.md | 02_acne_diet.md,01_healthy_eating_basics.md | 01_skin_beneficial_foods.md | 02_acne_diet.md,False
+как правильно наносить и выбирать SPF крем,04_spf_protection.md | 01_cleansing.md | 02_spring_skin_prep.md,04_spf_protection.md | 01_cleansing.md | 02_spring_skin_prep.md,False
+ретинол с чего начать и как избежать раздражения,01_retinol_and_derivatives.md | 04_wrinkles_and_loss_of_firmness.md | 01_retinol_and_derivatives.md,01_retinol_and_derivatives.md | 04_wrinkles_and_loss_of_firmness.md | 01_retinol_and_derivatives.md,False
+уход за жирной кожей матирование и поры,02_oily_skin.md | 02_oily_skin.md | 01_cleansing.md,02_oily_skin.md | 02_oily_skin.md | 01_cleansing.md,False
+витамин С сыворотка осветление пигментных пятен,02_pigmentation.md | 01_acne_and_post_acne.md | 02_pigmentation.md,02_pigmentation.md | 01_acne_and_post_acne.md | 02_pigmentation.md,False
+выпадение волос причины и что делать,04_split_ends.md | 04_split_ends.md | 02_curly_girl_method.md,04_split_ends.md | 04_split_ends.md | 02_curly_girl_method.md,False
+как читать состав косметики и что такое INCI,03_reading_inci_labels.md | 03_reading_inci_labels.md | 01_cleansing.md,03_reading_inci_labels.md | 03_reading_inci_labels.md | 01_cleansing.md,False
+купероз и розацеа как лечить и какие триггеры,03_rosacea_and_couperose.md | 03_rosacea_and_couperose.md | 03_rosacea_and_couperose.md,03_rosacea_and_couperose.md | 03_rosacea_and_couperose.md | 03_rosacea_and_couperose.md,False
+ниацинамид концентрация для жирной кожи,05_niacinamide.md | 02_oily_skin.md | 03_combination_skin.md,05_niacinamide.md | 02_oily_skin.md | 03_combination_skin.md,False
+метод кудряшки curly girl co-wash,02_curly_girl_method.md | 02_curly_girl_method.md | 02_curly_girl_method.md,02_curly_girl_method.md | 02_curly_girl_method.md | 02_curly_girl_method.md,False
