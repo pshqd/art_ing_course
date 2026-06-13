@@ -1,0 +1,65 @@
+[project]
+name = "skincare-advisor-backend"
+version = "0.1.0"
+description = "RAG-powered skincare consultation API using Flask and ChromaDB"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    { name = "girl team", email = "tsarevapln@gmail.com" }
+]
+
+dependencies = [
+    "flask>=3.0.0",
+    "flask-cors>=4.0.0",
+    "langchain-community>=0.2",
+    "langchain-huggingface>=0.1",
+    "faiss-cpu>=1.8",
+    "python-frontmatter>=1.1",
+    "langchain-text-splitters>=0.2",
+    "requests>=2.31.0",
+    "setuptools>=82.0.0",
+    "python-dotenv>=0.9.9",
+    "sentence-transformers>=5.4.1",
+    "langchain-gigachat>=0.5.0",
+    "ipykernel>=7.2.0",
+    "pandas>=3.0.3",
+    "seaborn>=0.13.2",
+    "matplotlib>=3.10.9",
+    "langchain-faiss>=0.1.1",
+    "rank-bm25>=0.2.2",
+    "scikit-learn>=1.8.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "sphinx-rtd-theme>=2.0",
+    "sphinx>=9.0.4",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = []
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = []
+
+[tool.black]
+line-length = 100
+target-version = ['py311']
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+pythonpath = ["."]   
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.2.0",
+]
